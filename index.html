@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>inputmode-sample</title>
+        <style>
+            html {
+                font-size: 20px;
+                font-family: sans-serif;
+            }
+            body {
+                margin: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .input-wrapper {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
+            input {
+                flex: 1;
+            }
+            input + span.status {
+                order: -1;
+            }
+            input:invalid + span.status::before {
+                content: "✗";
+            }
+            input:valid + span.status::before {
+                content: "✓";
+            }
+        </style>
+    </head>
+    <body>
+        <h1>inputmode</h1>
+        <label>
+            <div class="input-info">
+                <span class="input-mode">-</span>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" />
+                <span class="status"></span>
+            </div>
+        </label>
+
+        <label>
+            <div class="input-info">
+                <span class="input-mode">numeric</span>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" inputmode="numeric" />
+                <span class="status"></span>
+            </div>
+        </label>
+
+        <label>
+            <div class="input-info">
+                <span class="input-mode">decimal</span>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" inputmode="decimal" />
+                <span class="status"></span>
+            </div>
+        </label>
+    </body>
+</html>
